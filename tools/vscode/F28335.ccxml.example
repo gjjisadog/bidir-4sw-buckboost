@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Example CCXML. Replace device/probe with your actual hardware and rename to F28335.ccxml -->
+<configurations XML_version="1.2" id="F28335">
+    <configuration id="F28335_XDS100v2" desc="F28335 via XDS100v2">
+        <connection id="Texas Instruments XDS100v2 USB Emulator">
+            <device id="TMS320F28335"/>
+        </connection>
+    </configuration>
+</configurations>

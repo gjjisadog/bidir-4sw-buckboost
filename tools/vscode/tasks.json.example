@@ -1,0 +1,50 @@
+{
+    // Copy to .vscode/tasks.json and replace tool paths/commands as needed.
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build-firmware",
+            "type": "shell",
+            "command": "echo",
+            "args": [
+                "TODO: replace with your real build, e.g. gmake -C firmware/projects all"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "start-dslite-gdbserver",
+            "type": "shell",
+            "command": "${env:TI_DSLITE:-$HOME/ti/ccs/ccs_base/DebugServer/bin/DSLite.sh}",
+            "args": [
+                "-c",
+                "${env:TI_CCXML:-${workspaceFolder}/tools/vscode/F28335.ccxml}",
+                "--gdbServer",
+                "3333",
+                "-l",
+                "${workspaceFolder}/firmware/projects/buckboost.out"
+            ],
+            "isBackground": true,
+            "problemMatcher": {
+                "owner": "custom",
+                "pattern": [
+                    { "regexp": ".*" }
+                ],
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": ".*gdbserver.*",
+                    "endsPattern": ".*Listening on port 3333.*"
+                }
+            }
+        },
+        {
+            "label": "stop-dslite-gdbserver",
+            "type": "shell",
+            "command": "pkill",
+            "args": [
+                "-f",
+                "DSLite.*F28335.ccxml"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}
