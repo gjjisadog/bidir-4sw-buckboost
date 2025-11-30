@@ -1,4 +1,4 @@
-# 四开关 Buck-Boost (F28335) 项目骨架
+# 四开关 Buck-Boost (F28335) 项目
 
 项目已按 fsbb-converter 框架拆分固件/硬件/仿真/工具目录，便于协同 TI F28335 平台、文档与硬件设计。
 
@@ -14,7 +14,12 @@
 - `tools/`：脚本或上位机程序。
 - `.gitignore`：忽略编译与仿真产物。
 
+## 四开关BuckBoost工作原理
+
+
+
 ## VS Code 调试（无需打开 CCS GUI）
+
 - 使用 VS Code + cpptools + TI 命令行工具：模板位于 `tools/vscode/`（`launch.json.example`、`tasks.json.example`、`F28335.ccxml.example`）。
 - 依赖：TI C2000 GNU 工具链带的 `c2000-elf-gdb`（或等效 GDB）、TI DebugServer/DSLite CLI（ccs_base），以及匹配硬件的 CCXML。
 - 将模板复制到 `.vscode/` 后，设置环境变量 `TI_C2000_GDB`、`TI_DSLITE`、`TI_CCXML`，并替换真实的构建命令与固件 `.out` 路径。
@@ -52,7 +57,7 @@
 - `simulation/simulink` 提供 S-Function (`buckboost_sfunc.c`) 与 HAL 仿真桩，可用 `build_mex.m` 构建。
 - 预留 `plecs/`、`spice/`、`calculations/` 目录以补充其他仿真与参数推导。
 
-## 后续扩展
+## 后续计划
 - 将参数与标定映射到现有通讯协议（bsw_serial_comm）便于上位机调试。
 - 结合硬件设计完善数字 IO 与保护闭锁。
 - 如需多处理器/协同外设，可参考储能项目 IPC/EMIF 结构。
