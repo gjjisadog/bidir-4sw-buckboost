@@ -70,4 +70,5 @@ bool buckboost_state_is_running(const buckboost_state_ctx_t *ctx)
     return (ctx->state == BUCKBOOST_STATE_RUN || ctx->state == BUCKBOOST_STATE_SOFTSTART);
 }
 
+
 /************************ (C) COPYRIGHT 2024 *****END OF FILE****/
